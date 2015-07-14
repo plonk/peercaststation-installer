@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>情報 - PeerCastStation </title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="icon" href="favicon.ico" type="image/vnd.microsoft.icon" />
+    <link type="text/css" href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link type="text/css" href="css/index.css" rel="stylesheet" />
+    <script type="text/javascript" src="/Scripts/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery.json-2.4.min.js"></script>
+    <script type="text/javascript" src="/Scripts/knockout-2.2.0.js"></script>
+    <script type="text/javascript" src="/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/peercaststation.1.0.0.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $('.alert').alert();
+        IndexViewModel.bind($('#status').get(0));
+        UIViewModel.bind($('#header').get(0));
+      });
+    </script>
+    <script type="text/html" id='alert'>
+      <div class="alert alert-block fade in" data-bind="css:'alert-'+type, click:clicked">
+        <a class="close" data-dismiss="alert" data-bind="css:'alert-'+type, click:close" href="#">&times;</a>
+        <h4 data-bind="text:title"></h4>
+        <p data-bind="text:message"></p>
+      </div>
+    </script>
+  </head>
+  <body>
+  <div id="header">
+      <div class="alerts" data-bind="template: { name: 'alert', foreach: alerts }"></div>
+      <div class="navbar">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <a class="brand" href="#">PeerCastStation</a>
+            <ul class="nav">
+              <li class="active"><a href="index.html">情報</a></li>
+              <li><a href="channels.html">Yellow Page</a></li>
+              <li><a href="relays.html">リレー</a></li>
+              <li><a href="settings.html">設定</a></li>
+              <li><a href="logs.html">ログ</a></li>
+              <li><a href="/help/index.html">ヘルプ</a></li>
+            </ul>
+            <a class="btn btn-warning pull-right" data-bind="css:{hidden:!newVersionAvailable()}" href="update.html" target="_blank">バージョンアップ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid" id="status">
+      <div class="row-fluid">
+        <h1><span data-bind="text:agentName"></span></h1>
+      </div>
+      <div class="row-fluid">
+        <div class="span6">
+          <h2>状態</h2>
+          <table class="table">
+            <tr>
+              <th>起動時間</th>
+              <td><span data-bind="text:uptimeReadable"></span></td>
+            </tr>
+            <tr>
+              <th>ポート開放</th>
+              <td><span data-bind="text:firewalledStatus"></span></td>
+            </tr>
+            <tr>
+              <th>リレー可能アドレス</th>
+              <td><span data-bind="text:globalRelayAddress"></span></td>
+            </tr>
+            <tr>
+              <th>リレー可能アドレス(LAN内)</th>
+              <td><span data-bind="text:localRelayAddress"></span></td>
+            </tr>
+            <tr>
+              <th>視聴可能アドレス</th>
+              <td><span data-bind="text:globalDirectAddress"></span></td>
+            </tr>
+            <tr>
+              <th>視聴可能アドレス(LAN内)</th>
+              <td><span data-bind="text:localDirectAddress"></span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span6">
+          <h2>プラグイン</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>名前</th>
+                <th>使用可能</th>
+                <th>ファイル名</th>
+                <th>バージョン</th>
+              </tr>
+            </thead>
+            <tbody data-bind="foreach:plugins">
+              <tr>
+                <td data-bind="text:name"></td>
+                <td data-bind="text:isUsable"></td>
+                <td data-bind="text:dll"></td>
+                <td data-bind="text:version"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

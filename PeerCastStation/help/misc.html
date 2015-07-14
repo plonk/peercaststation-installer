@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>PeerCastStation - その他</title>
+    <link type="text/css" href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <style type="text/css">img { max-width:none; }</style>
+    <script type="text/javascript">
+      $(function() {
+        $('.dropdown-toggle').dropdown();
+      });
+    </script>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="#">PeerCastStation</a>
+          <ul class="nav">
+            <li><a href="/html/index.html">情報</a></li>
+            <li><a href="/html/channels.html">Yellow Page</a></li>
+            <li><a href="/html/relays.html">リレー</a></li>
+            <li><a href="/html/settings.html">設定</a></li>
+            <li><a href="/html/logs.html">ログ</a></li>
+            <li class="active"><a href="index.html">ヘルプ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <ul class="span12 nav nav-tabs">
+          <li ><a href="index.html"    >PeerCastStationについて</a></li>
+          <li ><a href="usage.html"    >使い方</a></li>
+          <li ><a href="ypbrowser.html">YPブラウザ</a></li>
+          <li ><a href="broadcast.html">配信</a></li>
+          <li ><a href="settings.html" >設定</a></li>
+          <li  class="active" ><a href="misc.html"     >その他</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <ul class="nav nav-tabs nav-stacked">
+            <li><a href='#section'>その他</a></li>
+<li><a href='#section-1'>設定の保存先</a></li>
+<li><a href='#section-2'>落ちた時は</a></li>
+<li><a href='#section-3'>問題の報告・要望の連絡先について</a></li>
+<li><a href='#section-4'>ソース・ライセンス</a></li>
+<li><a href='#section-5'>開発に参加したい場合</a></li>
+          </ul>
+        </div>
+        <div class="span9">
+          <h1 id="section">その他</h1>
+
+<h2 id="section-1">設定の保存先</h2>
+<p>急に起動しなくなった、そんな時は設定ファイルの削除を試してください。</p>
+
+<p>Windows(Vista以降)では</p>
+
+<pre><code>C:\Users\(ユーザ名)\AppData\Roaming\PeerCastStation
+</code></pre>
+
+<p>に入っています。(ユーザ名)のところはログインしているユーザ名で置き換えてください。削除する場合はPeerCastStationフォルダごと削除してしまってください。</p>
+
+<p>古い設定ファイルは</p>
+
+<pre><code>C:\Users\(ユーザ名)\AppData\Local\PeerCastStation
+</code></pre>
+
+<p>に入っています。起動しない場合はこちらのファイルに不具合がある可能性があるのでフォルダごと削除してみてください。</p>
+
+<p>Windows以外(mono)では</p>
+
+<pre><code>~/.config/PeerCastStation
+</code></pre>
+
+<p>に入っています。こちらも削除する時はPeerCastStationディレクトリごと削除してください。</p>
+
+<p>設定ファイルを削除すると当然次回起動時には各種設定が初期値に戻っています。上り帯域などを適切に設定しなおすようにしてください。</p>
+
+<h2 id="section-2">落ちた時は</h2>
+<p>PeerCastStationも所詮人の手によって作られしものなのでたまに落ちます。そんな時は再度起動してください。</p>
+
+<p>落ちると上記の設定ファイルと同じ場所にexceptions.logというファイルが出来ています。
+Issueへ問題の報告(下記参照)をする時にはexceptions.logの内容を貼ってもらえると早く解決できる可能性が高まります。</p>
+
+<h2 id="section-3">問題の報告・要望の連絡先について</h2>
+<p><a href="https://github.com/kumaryu/peercaststation">githubのIssueに報告してください。</a></p>
+
+<p>報告するにもgithubのアカウントが必要ですがそのくらい取りましょう。
+連絡が取れないと困るので匿名での報告経路は用意していません。</p>
+
+<h2 id="section-4">ソース・ライセンス</h2>
+<p><a href="https://github.com/kumaryu/peercaststation">githubにてソース公開しています。</a></p>
+
+<p>ライセンスはGPLv3です。
+使用しているライブラリ等のライセンスに関しては同梱のLICENSE.txtを見てください。</p>
+
+<h2 id="section-5">開発に参加したい場合</h2>
+<p>PeerCastStationの開発を手伝いたいけど何をしていいかわからない、
+こんな時はまずPeerCastStationを使って、不具合や不満点があればgithubのIssueに上げてください。
+要望だけでも歓迎です。</p>
+
+<p>コードの改善をしたい場合はgithubでforkしてpull requestを送ってください。</p>
+
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

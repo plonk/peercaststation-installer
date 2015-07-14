@@ -10,7 +10,7 @@ install: user
 
 stopdaemon:
 	service peercaststation stop
-	update-rc.d peercaststation defaults 98 02
+	update-rc.d peercaststation remove
 
 # アンインストール
 remove: stopdaemon removefiles removeuser

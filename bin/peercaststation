@@ -1,0 +1,8 @@
+#!/usr/bin/ruby
+
+if Process::Sys.getuid == 0
+  Process::Sys.setuid 7144
+end
+
+ENV['MONO_NO_SMP'] = '1'
+exec "mono", "/usr/local/lib/peercaststation/PeerCastStation.exe"

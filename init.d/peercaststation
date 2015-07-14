@@ -1,0 +1,43 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          peercaststation
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: PeerCastStation
+# Description:       PeerCastStation
+### END INIT INFO
+
+PIDFILE=/var/run/peercaststation.pid
+USER=plonk
+PEERCASTSTATION=/usr/local/bin/peercaststation
+MONO=mono
+
+. /lib/lsb/init-functions
+
+case "$1" in
+    start)
+        if pidofproc -p $PIDFILE $PEERCASTSTATION > /dev/null 2>&1 ; then
+            exit 1
+        fi
+        /usr/local/bin/peercaststation &
+        echo $! > $PIDFILE
+        exit 0
+        ;;
+    stop)
+	if [ -z $(pidofproc -p $PIDFILE $PEERCASTSTATION) ] ; then
+            exit 1
+        fi
+        kill $(pidofproc -p $PIDFILE $PEERCASTSTATION)
+        rm $PIDFILE
+        exit 0
+        ;;
+    *)
+        echo "Usage ${0##*/} {start|stop}" >&2
+        exit 3
+        ;;
+esac
+
+exit 0

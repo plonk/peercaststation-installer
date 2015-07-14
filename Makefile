@@ -8,16 +8,14 @@ install: user
 	update-rc.d peercaststation defaults 98 02
 	@echo "To start up PeerCastStation:\nservice peercaststation start"
 
-stopdaemon:
-	update-rc.d peercaststation remove
-
 # アンインストール
-remove: stopdaemon removefiles removeuser
+remove: removefiles removeuser
 
 removefiles:
 	rm -r /usr/local/lib/peercaststation
 	rm /usr/local/bin/peercaststation
 	rm /etc/init.d/peercaststation
+	update-rc.d peercaststation remove
 	rm -r /etc/peercaststation
 
 # ユーザーを削除する

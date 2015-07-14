@@ -5,10 +5,12 @@ install: user
 	cp -R PeerCastStation /usr/local/lib/peercaststation
 	chown -R peercaststation.peercaststation /usr/local/lib/peercaststation
 	install -m 775 bin/peercaststation /usr/local/bin/peercaststation
+	update-rc.d peercaststation defaults 98 02
 	@echo "To start up PeerCastStation:\nservice peercaststation start"
 
 stopdaemon:
 	service peercaststation stop
+	update-rc.d peercaststation defaults 98 02
 
 # アンインストール
 remove: stopdaemon removefiles removeuser

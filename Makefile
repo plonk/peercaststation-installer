@@ -9,7 +9,6 @@ install: user
 	@echo "To start up PeerCastStation:\nservice peercaststation start"
 
 stopdaemon:
-	service peercaststation stop
 	update-rc.d peercaststation remove
 
 # アンインストール
